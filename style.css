@@ -1,0 +1,657 @@
+/*--------------------------------------------*/
+/* GENERAL */
+
+html,
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "bebasneue";
+    src: url("fonts/BebasNeue-Regular.ttf");
+}
+
+@font-face {
+    font-family: "quicksand";
+    src: url("fonts/static/Quicksand-Medium.ttf");
+}
+
+
+ul {
+    list-style-type: none;
+    display: inline-flex;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: bebasneue;
+    color: #F6F5F5;
+    margin: 0;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p,
+a {
+    margin: 0;
+    text-decoration: none;
+    font-family: quicksand;
+    color: #F6F5F5;
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    background: #F6F5F5;
+}
+
+/*--------------------------------------------*/
+/* HEADER */
+@media only screen and (min-width: 992px) {
+    .burgerr {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .deroulant {
+        display: none;
+    }
+}
+
+.burger-deroulant {
+    position: relative;
+    display: none;
+    z-index: 2;
+    width: 220px;
+    background: #AB4242;
+}
+
+.burger-deroulant.active {
+    display: block;
+}
+
+
+.burgerr,
+.burger {
+
+    height: 65px;
+    width: 65px;
+    cursor: pointer;
+    position: relative;
+}
+
+.burger span {
+    margin-left: 10px;
+    width: 45px;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+}
+
+.burger span::before,
+.burger span::after {
+    padding-left: 10px;
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 5px;
+    background: black;
+    transition: transform 0.5s ease-in-out;
+}
+
+.burger span::before {
+    transform: translateY(-15px);
+}
+
+.burger span::after {
+    transform: translateY(15px);
+}
+
+.burger.active span {
+    background-color: transparent;
+}
+
+.burger.active span::before {
+    transform: translateY(0px) rotateZ(45deg);
+}
+
+.burger.active span::after {
+    transform: translateY(0px) rotateZ(-45deg);
+}
+
+.sous {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background: #373737;
+    width: 100%;
+}
+
+.burgerr .sous {
+    margin-left: 100%;
+    position: relative;
+    bottom: 65px;
+}
+
+
+.burgerr > ul li:hover .sous {
+    display: block;
+}
+
+nav > ul li:hover .sous {
+    display: block;
+}
+
+.sous li {
+    float: right;
+    float: right;
+    text-align: left;
+    width: 100%;
+    background: #373737;
+}
+
+
+.sous a {
+    border-bottom: none;
+}
+
+.sous a:hover {
+    border-bottom: none;
+}
+
+.sous h2 {
+    padding: 15px;
+    padding-left: 10px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+
+header nav h1 {
+    color: #373737;
+    padding-left: 6px;
+    padding-right: 6px;
+    height: 65px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+header nav {
+    height: 65px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    background: #AB4242;
+    align-items: center;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+header li h1:hover,
+.sous h2:hover {
+    background: #373737;
+    color: #AB4242;
+}
+
+header img {
+    height: 55px;
+    margin-right: 10px;
+}
+
+#diaporama {
+    position: relative;
+    overflow: hidden;
+    height: 375px;
+}
+
+.elements {
+    width: 100%;
+    display: inline-flex;
+    transition: 1.5s linear;
+}
+
+.element {
+    flex: 1 0 100%;
+}
+
+.element > img {
+    width: 100%;
+}
+
+
+.image-etablissement {
+    height: 375px;
+    background: url(images/facade-iut.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.image-2 {
+    height: 375px;
+    background: url(images/aides-au-devoir.jpg) center no-repeat;
+    background-size: cover;
+}
+.image-3 {
+    height: 375px;
+    background: url(images/aides-au-quotidien.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.caption {
+    position: relative;
+    top: -12.6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(55, 55, 55, 0.4);
+    padding: 30px;
+}
+
+#cercles {
+    position: relative;
+    top: -40px;
+    display: inline-flex;
+}
+
+.cercle {
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: white;
+}
+
+#image-devoirs {
+    height: 375px;
+    background: url(images/proposition-parainnage.jpg) center no-repeat;
+    background-size: cover;
+}
+
+#image-quotidien {
+    height: 375px;
+    background: url(images/proposition-parainnage.jpg) center no-repeat;
+    background-size: cover;
+}
+
+
+#titre-devoirs {
+    position: relative;
+    top: -6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #F6F5F5;
+    -webkit-text-stroke: 2px #373737;
+    background-color: rgba(55, 55, 55, 0.4);
+    padding: 8px 0 8px 0;
+}
+
+/*--------------------------------------------*/
+/* MAIN */
+
+.button {
+    padding: 10px;
+    border-top: 4px solid #373737;
+    margin: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.question{
+    text-align: center!important;
+}
+
+
+.question:hover{
+    background: #373737;
+    color: #AB4242;
+}
+
+.button:hover {
+    background: #F6F5F5;
+    color: #AB4242;
+}
+
+
+.button-last {
+    border-bottom: 4px solid #373737;
+    margin-bottom: 20px;
+
+}
+
+.main {
+    padding-bottom: 40px;
+}
+
+.main-main p a {
+    padding-left: 0px;
+    margin-right: 0px;
+}
+
+.main-main {
+    padding-top: 0px;
+    background: url(images/fond.svg) no-repeat bottom right;
+    background-size: 60%;
+}
+
+main {
+    text-align: center;
+}
+
+.type {
+    padding-top: 40px;
+}
+
+.main-article,
+main a h2 {
+    background: #AB4242;
+}
+
+.article-active{
+    display: inline-block!important;
+}
+
+.main-article h2,.main-article .article{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 4px solid #373737;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.main-article a{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 4px solid #373737;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+
+.main-article h2:hover{
+    color: #373737;
+}
+
+main p,
+main h1 {
+    padding: 5px;
+}
+
+#aides-au-quotidien {
+    height: 225px;
+    background: url(images/aides-au-quotidien.jpg) center no-repeat;
+    background-size: cover;
+}
+
+#parrainage {
+    height: 225px;
+    background: url(images/parrainage.jpg) center no-repeat;
+    background-size: cover;
+}
+
+#aides-aux-devoirs {
+    height: 225px;
+    background: url(images/aides-au-devoir.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.article{
+    display: none;
+}
+
+main a h1 {
+    -webkit-text-stroke: 2px #373737;
+}
+
+.main-article{
+    border: black solid 0px;
+    margin-bottom: 40px;
+}
+
+
+.cadre {
+    background: rgba(171, 70, 70, 0.9);
+    padding: 50px;
+    margin-bottom: 40px;
+    min-height: 700px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.cadre h1,
+.cadre h2 {
+    color: #373737;
+}
+
+.cadre p,
+.cadre h1,
+.cadre h2,
+.main-etablissement h1 {
+    text-align: left;
+}
+
+.formulaire {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.cadre h1,
+.main-etablissement h1 {
+    background: #AB4646;
+}
+
+.main-parrainage {
+    background: url(images/parrainage.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.main-contact {
+    background: url(images/contact.jpg) center no-repeat;
+    background-size: cover;
+}
+
+.cadre-rouge {
+    background: rgb(171, 70, 70);
+    padding: 20px;
+    box-shadow: 10px 10px #C4C4C4;
+}
+
+.shadow {
+    box-shadow: 10px 10px #C4C4C4;
+}
+
+.cadre-rouge > h2 {
+    color: #373737;
+}
+
+.cadre-rouge > h2:first-child {
+    margin-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #373737;
+}
+
+.astuces{
+    text-align: left;
+}
+
+.astuces a{
+    color: cornflowerblue;
+}
+
+.cadre-rouge p {
+    color: #373737;
+    background: #F6F5F5;
+
+}
+
+.reponses p {
+    margin-bottom: 15px;
+}
+
+.image-astuces {
+    height: 225px;
+    background: url(images/astuces.jpg) center no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.p1{
+    background: url(images/solenn.jpg) center;
+    background-size: cover;
+}
+.p2{
+    background: url(images/courtney.jpg) center;
+    background-size: cover;
+}
+.p3{
+    background: url(images/elouan.jpg) center;
+    background-size: cover;
+}
+
+.p4{
+    background: url(images/hugo.jpg) center;
+    background-size: cover;
+}
+
+.photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+    
+    float: left;
+}
+
+.droite {
+    float: right;
+    margin-left: 10px;
+}
+
+.cadre-photo {
+    min-height: 120px;
+    margin-bottom: 10px;
+}
+
+.gauche {
+    margin-right: 10px;
+}
+
+
+/*--------------------------------------------*/
+/* FOOTER */
+
+footer {
+    min-height: 200px;
+    background: #373737;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer ul {
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    margin-right: 20px;
+}
+
+
+.footerl {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.footerr {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: right;
+    align-items: flex-end;
+}
+
+@media only screen and (max-width: 991px) {
+    .footerl {
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .footerr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        
+    }
+    .footerl li{
+        margin: 0;
+    }
+    .footerl ul{
+        margin-top: 1em;
+        display: flex;
+        justify-content: space-around;
+        max-width: 450px;
+        width: 100%;
+    }
+}
+
+#groupe-reseau {
+    display: inline-flex;
+}
+
+.reseau {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin-left: 15px;
+    font-size: 35px;
+    text-align: center;
+}
+
+.facebook {
+    background: #334D84;
+}
+
+.linkedin {
+    background: #0074B3;
+}
+
+.twitter {
+    background: #3CA0EC;
+}
+
+.instagram {
+    background: #FF1F6D;
+}
